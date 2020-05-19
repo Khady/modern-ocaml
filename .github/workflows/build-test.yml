@@ -1,0 +1,44 @@
+name: build and test
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - macos-latest
+          - ubuntu-latest
+          - windows-latest
+        ocaml-version:
+          - 4.09.1
+          - 4.10.0
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Use OCaml ${{ matrix.ocaml-version }}
+        uses: avsm/setup-ocaml@v1
+        with:
+          ocaml-version: ${{ matrix.ocaml-version }}
+
+      - run: opam pin add modern-ocaml.dev . --no-action
+
+      - run: opam depext modern-ocaml --yes --with-doc --with-test
+
+      - run: opam install . --deps-only --with-doc --with-test
+
+      - name: build project
+        run: opam exec -- dune build
+
+      - name: run test
+        run: opam exec -- dune runtest
+
+      - name: check ocamlformat
+        run: opam exec -- dune build @fmt

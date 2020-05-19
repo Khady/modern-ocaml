@@ -1,0 +1,12 @@
+{
+    "source": "./modern-ocaml.opam",
+    "override": {
+        "buildsInSource": "unsafe",
+        "dependencies": {
+            "ocaml": "4.10.0"
+        },
+        "devDependencies": {
+            "@opam/ocaml-lsp-server": "ocaml/ocaml-lsp:ocaml-lsp-server.opam"
+        }
+    }
+}

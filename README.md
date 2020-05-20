@@ -14,8 +14,7 @@ opam install . --deps-only
 For esy users:
 
 ```
-esy install
-esy build
+esy
 ```
 
 ## Package manager

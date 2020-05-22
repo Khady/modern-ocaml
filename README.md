@@ -51,3 +51,15 @@ triggered with `dune build @fmt`.
 Over the past year a very good implementation of a LSP server for ocaml has
 been developed. It should be automatically installed during the setup of the
 project.
+
+## Running a binary
+
+After running the setting up commands, you can check that it works by running:
+
+```
+dune build @install
+dune exec bin/main.exe
+
+❯ dune exec bin/main.exe
+Hello, World!        
+```

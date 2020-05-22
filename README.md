@@ -57,9 +57,7 @@ project.
 After running the setting up commands, you can check that it works by running:
 
 ```
-dune build @install
-dune exec bin/main.exe
-
-❯ dune exec bin/main.exe
-Hello, World!        
+$ dune build
+$ dune exec bin/main.exe
+Hello, World!
 ```

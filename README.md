@@ -61,3 +61,13 @@ $ dune build
 $ dune exec bin/main.exe
 Hello, World!
 ```
+
+## License
+
+This repository contains a AGPLv3+ license file. I made this choice because I
+support free software and I believe that it is the best license to use for
+personal projects. But this repository is meant to be used as a template. It
+doesn't contain any original code by itself. So it can't be covered by a
+license. Feel free to use this template for your projects and pick the
+license you prefer. It is also totally fine to use it for a closed source
+project.

@@ -30,8 +30,12 @@ jobs:
 
       - run: opam pin add modern-ocaml.dev . --no-action
 
-      - run: opam depext modern-ocaml --yes --with-doc --with-test
-
+      - name: opam depext
+        run: |
+          opam depext modern-ocaml --yes
+          opam depext modern-ocaml --yes --with-doc
+          opam depext modern-ocaml --yes --with-test
+          
       - run: opam install . --deps-only --with-doc --with-test
 
       - name: build project

@@ -10,7 +10,7 @@ tags: ["git" "diff"]
 depends: [
   "ocaml"
   "dune" {>= "2.5"}
-  "ocamlformat" {= "0.14.2" & dev}
+  "ocamlformat" {= "0.15.0" & dev}
   "ocaml-lsp-server" {dev}
 ]
 pin-depends: [

@@ -71,3 +71,7 @@ doesn't contain any original code by itself. So it can't be covered by a
 license. Feel free to use this template for your projects and pick the
 license you prefer. It is also totally fine to use it for a closed source
 project.
+
+If you need help selecting a license, the Free Software 
+Foundation provides a [short guide]( https://www.gnu.org/licenses/license-recommendations.html) for 
+picking a license.

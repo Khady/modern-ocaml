@@ -1,2 +1,2 @@
-(lang dune 2.5)
+(lang dune 3.6)
 (name modern-ocaml)

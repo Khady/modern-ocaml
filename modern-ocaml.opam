@@ -9,13 +9,9 @@ doc: "https://khady.github.io/modern-ocaml/"
 tags: ["git" "diff"]
 depends: [
   "ocaml"
-  "dune" {>= "2.5"}
-  "ocamlformat" {= "0.15.0" & dev}
-  "ocaml-lsp-server" {dev}
-]
-pin-depends: [
-  [ "ocaml-lsp-server.dev"
-    "git+https://github.com/ocaml/ocaml-lsp.git#HEAD" ]
+  "dune" {>= "3.0"}
+  "ocamlformat" {= "0.24.1" & dev}
+  "ocaml-lsp-server" {= "1.15.1-4.14" & dev}
 ]
 build: [
   ["dune" "subst"] {pinned}

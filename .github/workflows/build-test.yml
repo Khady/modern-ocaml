@@ -26,16 +26,10 @@ jobs:
         uses: ocaml/setup-ocaml@v2
         with:
           ocaml-compiler: ${{ matrix.ocaml-version }}
+          dune-cache: true
+          opam-depext-flags: "--with-test"
 
-      - run: opam pin add modern-ocaml.dev . --no-action
-
-      - name: opam depext
-        run: |
-          opam depext modern-ocaml --yes
-          opam depext modern-ocaml --yes --with-doc
-          opam depext modern-ocaml --yes --with-test
-
-      - run: opam install . --deps-only --with-doc --with-test
+      - run: opam install . --deps-only --with-test
 
       - name: build project
         run: opam exec -- dune build
@@ -84,6 +78,7 @@ jobs:
         with:
           ocaml-compiler: 4.14.x
           dune-cache: true
+          opam-depext-flags: "--with-doc"
 
       - name: Deploy odoc to GitHub Pages
         uses: ocaml/setup-ocaml/deploy-doc@v2
@@ -99,6 +94,7 @@ jobs:
         with:
           ocaml-compiler: 4.14.x
           dune-cache: true
+          opam-depext-flags: "--with-doc"
 
       - name: Lint doc
         uses: ocaml/setup-ocaml/lint-doc@v2

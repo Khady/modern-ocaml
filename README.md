@@ -4,36 +4,19 @@ Template for an ocaml project with modern tooling.
 
 The setup should be installable as easily as possible.
 
-For opam users:
+## Getting started
 
-```
+```sh
 opam switch create . 4.14.1 --no-install
 opam install . --deps-only
 ```
 
-For esy users:
-
-```
-esy
-```
-
-## Package manager
-
-In an effort to take the best of all tools, both opam and esy are used.
-
-Opam is used as the main package manager. As it is the most popular tool so
-far. Using an opam file allows this repository to be consumed by any package
-manager. It also enables publication in the opam repository.
-
-Esy is configured as an overlay on top of the opam file. For those who want
-to use it it can reduce compilation time. And it also allows for easier
-pinning of development tools.
-
 ## Build system
 
-The current goto build system in ocaml is dune. Version 2 or superior of the
-dune lang should be used if possible. The base of the project has been
-generated with `dune init project modern_ocaml`.
+The current goto build system in ocaml is dune. Version 3 or superior of the
+dune lang should be used if possible. Unless the goal is to write a library
+that must be compatible with legacy environements. The base of the project has
+been generated with `dune init project modern_ocaml`.
 
 ## Continuous integration
 
@@ -56,7 +39,7 @@ project.
 
 After running the setting up commands, you can check that it works by running:
 
-```
+```sh
 $ dune build
 $ dune exec bin/main.exe
 Hello, World!
@@ -72,6 +55,6 @@ license. Feel free to use this template for your projects and pick the
 license you prefer. It is also totally fine to use it for a closed source
 project.
 
-If you need help selecting a license, the Free Software 
-Foundation provides a [short guide]( https://www.gnu.org/licenses/license-recommendations.html) for 
+If you need help selecting a license, the Free Software Foundation provides a
+[short guide]( https://www.gnu.org/licenses/license-recommendations.html) for
 picking a license.

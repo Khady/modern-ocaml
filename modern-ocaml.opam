@@ -6,7 +6,7 @@ bug-reports: "https://github.com/Khady/modern-ocaml/issues"
 license: "AGPL-3.0-or-later"
 dev-repo: "git+https://github.com/Khady/modern-ocaml.git"
 doc: "https://khady.github.io/modern-ocaml/"
-tags: ["git" "diff"]
+tags: ["ocaml" "is" "love"]
 depends: [
   "ocaml"
   "dune" {>= "3.0"}

@@ -10,8 +10,8 @@ tags: ["git" "diff"]
 depends: [
   "ocaml"
   "dune" {>= "3.0"}
-  "ocamlformat" {= "0.24.1" & dev}
-  "ocaml-lsp-server" {= "1.15.1-4.14" & dev}
+  "ocamlformat" {= "0.24.1" & with-dev-setup}
+  "ocaml-lsp-server" {= "1.15.1-4.14" & with-dev-setup}
 ]
 build: [
   ["dune" "subst"] {pinned}

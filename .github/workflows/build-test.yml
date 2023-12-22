@@ -1,26 +1,27 @@
-name: build and test
+name: Build and Test
 
 on:
   - push
   - pull_request
 
 jobs:
-  build:
+  build-and-test:
     strategy:
       fail-fast: false
       matrix:
         os:
           - macos-latest
           - ubuntu-latest
-          - windows-latest
+          # - windows-latest
         ocaml-version:
-          - 4.14.1
+          - 4.14
+          - 5.1
 
     runs-on: ${{ matrix.os }}
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Use OCaml ${{ matrix.ocaml-version }}
         uses: ocaml/setup-ocaml@v2
@@ -28,6 +29,7 @@ jobs:
           ocaml-compiler: ${{ matrix.ocaml-version }}
           dune-cache: true
           opam-depext-flags: "--with-test"
+          allow-prerelease-opam: true
 
       - run: opam install . --deps-only --with-test
 
@@ -36,65 +38,3 @@ jobs:
 
       - name: run test
         run: opam exec -- dune runtest
-  
-  lint-fmt:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Use OCaml 4.14.x
-        uses: ocaml/setup-ocaml@v2
-        with:
-          ocaml-compiler: 4.14.x
-          dune-cache: true
-
-      - name: Lint fmt
-        uses: ocaml/setup-ocaml/lint-fmt@v2
-  
-  lint-opam:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Use OCaml 4.14.x
-        uses: ocaml/setup-ocaml@v2
-        with:
-          ocaml-compiler: 4.14.x
-          dune-cache: true
-
-      - name: Lint opam
-        uses: ocaml/setup-ocaml/lint-opam@v2
-        
-  deploy-doc:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Use OCaml 4.14.x
-        uses: ocaml/setup-ocaml@v2
-        with:
-          ocaml-compiler: 4.14.x
-          dune-cache: true
-          opam-depext-flags: "--with-doc"
-
-      - name: Deploy odoc to GitHub Pages
-        uses: ocaml/setup-ocaml/deploy-doc@v2
-        
-  lint-doc:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Use OCaml 4.14.x
-        uses: ocaml/setup-ocaml@v2
-        with:
-          ocaml-compiler: 4.14.x
-          dune-cache: true
-          opam-depext-flags: "--with-doc"
-
-      - name: Lint doc
-        uses: ocaml/setup-ocaml/lint-doc@v2

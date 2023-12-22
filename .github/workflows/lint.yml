@@ -1,0 +1,57 @@
+name: Lint
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  lint-fmt:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Use OCaml 5.1
+        uses: ocaml/setup-ocaml@v2
+        with:
+          ocaml-compiler: 5.1
+          dune-cache: true
+          opam-depext-flags: "--with-doc"
+          allow-prerelease-opam: true
+
+      - name: Lint fmt
+        uses: ocaml/setup-ocaml/lint-fmt@v2
+
+  lint-opam:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Use OCaml 5.1
+        uses: ocaml/setup-ocaml@v2
+        with:
+          ocaml-compiler: 5.1
+          dune-cache: true
+          opam-depext-flags: "--with-doc"
+          allow-prerelease-opam: true
+
+      - name: Lint opam
+        uses: ocaml/setup-ocaml/lint-opam@v2
+
+  lint-doc:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Use OCaml 5.1
+        uses: ocaml/setup-ocaml@v2
+        with:
+          ocaml-compiler: 5.1
+          dune-cache: true
+          opam-depext-flags: "--with-doc"
+          allow-prerelease-opam: true
+
+      - name: Lint doc
+        uses: ocaml/setup-ocaml/lint-doc@v2

@@ -7,7 +7,7 @@ The setup should be installable as easily as possible.
 ## Getting started
 
 ```sh
-opam switch create . 4.14.1 --no-install
+opam switch create . 5.1.1 --no-install
 opam install . --deps-only
 ```
 

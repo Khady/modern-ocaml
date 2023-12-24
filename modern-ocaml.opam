@@ -13,6 +13,7 @@ depends: [
   "ocamlformat" {= "0.26.1" & with-dev-setup}
   "ocaml-lsp-server" {with-dev-setup}
   "odoc" {with-doc}
+  "dune-release" {with-dev-setup}
 ]
 build: [
   ["dune" "subst"] {pinned}

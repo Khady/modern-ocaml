@@ -33,7 +33,7 @@ jobs:
       - name: Set-up OCaml
         uses: ocaml/setup-ocaml@v3
         with:
-          ocaml-compiler: "5.1"
+          ocaml-compiler: "5.2"
           dune-cache: true
           opam-depext-flags: "--with-doc"
           allow-prerelease-opam: true

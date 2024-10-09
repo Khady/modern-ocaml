@@ -35,7 +35,6 @@ jobs:
         with:
           ocaml-compiler: "5.2"
           dune-cache: true
-          opam-depext-flags: "--with-doc"
           allow-prerelease-opam: true
 
       - name: Install dependencies

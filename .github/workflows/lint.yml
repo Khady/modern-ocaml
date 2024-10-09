@@ -16,7 +16,6 @@ jobs:
         with:
           ocaml-compiler: 5.2
           dune-cache: true
-          opam-depext-flags: "--with-doc"
           allow-prerelease-opam: true
 
       - name: Lint fmt
@@ -33,7 +32,6 @@ jobs:
         with:
           ocaml-compiler: 5.2
           dune-cache: true
-          opam-depext-flags: "--with-doc"
           allow-prerelease-opam: true
 
       - name: Lint opam
@@ -50,7 +48,6 @@ jobs:
         with:
           ocaml-compiler: 5.2
           dune-cache: true
-          opam-depext-flags: "--with-doc"
           allow-prerelease-opam: true
 
       - name: Lint doc

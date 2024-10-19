@@ -38,7 +38,7 @@ jobs:
           allow-prerelease-opam: true
 
       - name: Install ocamlformat
-        run: grep version .ocamlformat | cut -d '=' -f 2 | xargs -I V opam install ocamlformat=V
+        run: grep '^version=' .ocamlformat | cut -d '=' -f 2 | xargs -I V opam install ocamlformat=V
 
       - name: Format code
         run: |

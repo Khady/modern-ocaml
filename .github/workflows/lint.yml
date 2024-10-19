@@ -5,6 +5,7 @@ on:
   - pull_request
 
 jobs:
+
   lint-fmt:
     runs-on: ubuntu-latest
     steps:
@@ -20,6 +21,41 @@ jobs:
 
       - name: Lint fmt
         uses: ocaml/setup-ocaml/lint-fmt@v3
+
+  # auto fix formatting, Thanks to robur.coop for the implementation
+  # https://discuss.ocaml.org/t/ocamlformat-and-github-actions/15464
+  lint-auto-fmt:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Use OCaml 5.2
+        uses: ocaml/setup-ocaml@v3
+        with:
+          ocaml-compiler: 5.2
+          dune-cache: true
+          allow-prerelease-opam: true
+
+      - name: Install ocamlformat
+        run: grep version .ocamlformat | cut -d '=' -f 2 | xargs -I V opam install ocamlformat=V
+
+      - name: Format code
+        run: |
+          git ls-files '*.ml' '*.mli' | xargs opam exec -- ocamlformat --inplace
+
+      - name: Check for modified files
+        id: git-check
+        run: echo "modified=$(if git diff-index --quiet HEAD --; then echo "false"; else echo "true"; fi)" >> $GITHUB_OUTPUT
+
+      - name: Commit and push changes
+        if: ${{ steps.git-check.outputs.modified == 'true' }}
+        run: |
+          git config --global user.name "Automated ocamlformat GitHub action, developed by robur.coop"
+          git config --global user.email "autoformat@robur.coop"
+          git add -A
+          git commit -m "formatted code"
+          git push
 
   lint-opam:
     runs-on: ubuntu-latest

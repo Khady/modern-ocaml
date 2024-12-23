@@ -37,3 +37,11 @@ jobs:
 
       - name: run test
         run: opam exec -- dune runtest
+
+      - run: opam install . --deps-only --with-test --criteria='+removed,+count[version-lag,solution]' --solver=builtin-0install
+
+      - name: build project with lower bounds
+        run: opam exec -- dune build
+
+      - name: run test with lower bounds
+        run: opam exec -- dune runtest

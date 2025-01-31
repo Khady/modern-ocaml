@@ -9,7 +9,7 @@ doc: "https://khady.github.io/modern-ocaml/"
 tags: ["ocaml" "is" "love"]
 depends: [
   "ocaml"
-  "dune" {>= "3.12"}
+  "dune" {>= "3.17"}
   "ocamlformat" {= "0.27.0" & with-dev-setup}
   "ocaml-lsp-server" {with-dev-setup}
   "odoc" {with-doc}

@@ -9,8 +9,8 @@ doc: "https://khady.github.io/modern-ocaml/"
 tags: ["ocaml" "is" "love"]
 depends: [
   "ocaml"
-  "dune" {>= "3.17"}
-  "ocamlformat" {= "0.27.0" & with-dev-setup}
+  "dune" {>= "3.20"}
+  "ocamlformat" {= "0.28.1" & with-dev-setup}
   "ocaml-lsp-server" {with-dev-setup}
   "odoc" {with-doc}
   "dune-release" {with-dev-setup}

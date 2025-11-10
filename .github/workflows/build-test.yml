@@ -15,7 +15,7 @@ jobs:
           # - windows-latest
         ocaml-version:
           - 4.14
-          - 5.3
+          - 5.4
 
     runs-on: ${{ matrix.os }}
 

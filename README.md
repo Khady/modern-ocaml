@@ -7,13 +7,13 @@ The setup should be installable as easily as possible.
 ## Getting started
 
 ```sh
-opam switch create . 5.3.0 --no-install
+opam switch create . 5.4.0 --no-install
 opam install . --deps-only --with-dev-setup
 ```
 
 ## Build system
 
-The current goto build system in ocaml is dune. Version 3 or superior of the
+The current goto build system in ocaml is dune. Version 3.20 or superior of the
 dune lang should be used if possible. Unless the goal is to write a library
 that must be compatible with legacy environements. The base of the project has
 been generated with `dune init project modern_ocaml`.

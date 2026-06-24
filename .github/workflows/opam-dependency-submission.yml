@@ -11,10 +11,10 @@ jobs:
       - name: Checkout tree
         uses: actions/checkout@v6
 
-      - name: Set-up OCaml 5.4
+      - name: Set-up OCaml 5.5
         uses: ocaml/setup-ocaml@v3
         with:
-          ocaml-compiler: 5.4
+          ocaml-compiler: 5.5
           dune-cache: true
           allow-prerelease-opam: true
 
